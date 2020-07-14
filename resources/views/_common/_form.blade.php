@@ -1,4 +1,5 @@
-<form method="post" id="form-messages">
+<form method="post" action="/add" id="form-messages">
+    {{ csrf_field() }}
     <div class="form-group">
         <label for="name">Ім'я</label>
         <input type="text" class="form-control" name="name" id="name" placeholder="Ім'я">
