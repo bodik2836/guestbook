@@ -15,3 +15,4 @@ Route::get('/', 'HomeController@index');
 Route::get('message/{id}/edit', 'HomeController@edit')->where(['id' => '[0-9]+']);
 Route::post('add', 'HomeController@addMessage');
 Route::post('update/{id}', 'HomeController@updateMessage');
+Route::get('delete/{id}', 'HomeController@deleteMessage');

@@ -16,9 +16,9 @@
                 <a href="message/{{ $message->id }}/edit" class="btn btn-info">
                     <i class="glyphicon glyphicon-pencil"></i>
                 </a>
-                <button class="btn btn-danger">
+                <a href="delete/{{ $message->id }}" class="btn btn-danger">
                     <i class="glyphicon glyphicon-trash"></i>
-                </button>
+                </a>
             </div>
         </div>
     </div>

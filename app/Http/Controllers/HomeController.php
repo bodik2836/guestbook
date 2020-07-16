@@ -72,4 +72,11 @@ class HomeController extends Controller
 
         return redirect('/');
     }
+
+    public function deleteMessage($id)
+    {
+        Message::find($id)->delete();
+
+        return redirect('/');
+    }
 }
