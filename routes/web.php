@@ -12,7 +12,8 @@
 */
 
 Route::get('/', 'HomeController@index');
-Route::get('message/{id}/edit', 'HomeController@edit')->where(['id' => '[0-9]+']);
-Route::post('add', 'HomeController@addMessage');
-Route::post('update/{id}', 'HomeController@updateMessage');
-Route::get('delete/{id}', 'HomeController@deleteMessage');
+Route::get('admin', 'HomeController@admin');
+Route::get('message/edit/{id}', 'HomeController@edit')->where(['id' => '[0-9]+']);
+Route::post('message/add', 'HomeController@addMessage');
+Route::post('message/update/{id}', 'HomeController@updateMessage');
+Route::get('message/delete/{id}', 'HomeController@deleteMessage');

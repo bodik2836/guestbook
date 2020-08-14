@@ -1,7 +1,7 @@
 @extends('index')
 
 @section('content')
-    <form method="post" action="/update/{{ $id }}" id="form-messages">
+    <form method="post" action="/message/update/{{ $id }}" id="form-messages">
         {{ csrf_field() }}
         <div class="form-group">
             <label for="name">Ім'я</label>

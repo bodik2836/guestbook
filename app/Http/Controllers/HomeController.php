@@ -19,6 +19,18 @@ class HomeController extends Controller
         return view('pages.messages.index', $data);
     }
 
+    public function admin()
+    {
+        $data = [
+            'title' => 'Гостьова книга - Адмінка',
+            'pageTitle' => 'GuestBook Admin',
+            'messages' => Message::latest()->get(),
+            'count' => Message::count()
+        ];
+
+        return view('pages.messages.index-admin', $data);
+    }
+
     public function edit($id)
     {
         $message = Message::where('id', $id)->first();
@@ -70,7 +82,7 @@ class HomeController extends Controller
         $newMessage->message = $message;
         $newMessage->save();
 
-        return redirect('/');
+        return redirect('admin');
     }
 
     public function deleteMessage($id)

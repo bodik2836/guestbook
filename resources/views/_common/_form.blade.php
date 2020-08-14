@@ -1,4 +1,4 @@
-<form method="post" action="/add" id="form-messages">
+<form method="post" action="/message/add" id="form-messages">
     {{ csrf_field() }}
     <div class="form-group">
         <label for="name">Ім'я</label>
