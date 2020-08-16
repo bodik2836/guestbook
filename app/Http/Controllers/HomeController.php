@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $data = [
             'title' => 'Гостьова книга - Головна',
@@ -63,6 +63,8 @@ class HomeController extends Controller
         $newMessage->message = $message;
         $newMessage->save();
 
+        $request->session()->flash('status', 'Відгук успішно доданий.');
+
         return redirect('/');
     }
 
@@ -89,6 +91,6 @@ class HomeController extends Controller
     {
         Message::find($id)->delete();
 
-        return redirect('/');
+        return redirect('admin');
     }
 }
