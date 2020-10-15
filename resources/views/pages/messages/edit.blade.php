@@ -18,7 +18,7 @@
             </textarea>
         </div>
         <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Додати">
+            <input type="submit" class="btn btn-primary" value="Оновити">
         </div>
     </form>
 @endsection

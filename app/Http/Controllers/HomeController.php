@@ -63,7 +63,15 @@ class HomeController extends Controller
         $newMessage->message = $message;
 
         if ($newMessage->save()) {
-            $request->session()->flash('status', 'Відгук успішно доданий.');
+            $request->session()->flash('status', [
+                'msg' => 'Відгук успішно доданий.',
+                'type' => 'success'
+            ]);
+        } else {
+            $request->session()->flash('status', [
+                'msg' => 'Сталася помилка. Дані не збережено.',
+                'type' => 'error'
+            ]);
         }
 
         return redirect('/');
@@ -83,7 +91,18 @@ class HomeController extends Controller
         $newMessage->name = $name;
         $newMessage->email = $email;
         $newMessage->message = $message;
-        $newMessage->save();
+
+        if ($newMessage->save()) {
+            $request->session()->flash('status', [
+                'msg' => 'Дані успішно оновились.',
+                'type' => 'success'
+            ]);
+        } else {
+            $request->session()->flash('status', [
+                'msg' => 'Сталася помилка. Дані не оновились.',
+                'type' => 'error'
+            ]);
+        }
 
         return redirect('admin');
     }

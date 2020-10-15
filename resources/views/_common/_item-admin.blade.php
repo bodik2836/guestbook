@@ -1,12 +1,10 @@
 <div class="messages">
 @foreach($messages as $message)
     <div class="panel panel-default">
-
         <div class="panel-heading">
             <h3 class="panel-title">
-                <span>{{ $message->name }}</span> |
-                <a href="mailto:">{{ $message->email }}</a>
-                <span class="pull-right label label-info">{{ $message->updated_at }}</span>
+                <span>{{ $message->name }}</span> | <a href="mailto:">{{ $message->email }}</a>
+                <span class="pull-right label label-info">{{ date_format($message->updated_at, 'd.m.Y H:i') }}</span>
             </h3>
         </div>
         <div class="panel-body">
@@ -23,5 +21,4 @@
         </div>
     </div>
 @endforeach
-
 </div>
