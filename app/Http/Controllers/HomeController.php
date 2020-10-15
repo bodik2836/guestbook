@@ -61,9 +61,10 @@ class HomeController extends Controller
         $newMessage->name = $name;
         $newMessage->email = $email;
         $newMessage->message = $message;
-        $newMessage->save();
 
-        $request->session()->flash('status', 'Відгук успішно доданий.');
+        if ($newMessage->save()) {
+            $request->session()->flash('status', 'Відгук успішно доданий.');
+        }
 
         return redirect('/');
     }
