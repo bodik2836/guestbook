@@ -107,9 +107,21 @@ class HomeController extends Controller
         return redirect('admin');
     }
 
-    public function deleteMessage($id)
+    public function deleteMessage(Request $request, $id)
     {
-        Message::find($id)->delete();
+        $message = Message::find($id);
+
+        if ($message->delete()) {
+            $request->session()->flash('status', [
+                'msg' => 'Запис видалено.',
+                'type' => 'success'
+            ]);
+        } else {
+            $request->session()->flash('status', [
+                'msg' => 'Сталася помилка. Запис не видалено.',
+                'type' => 'error'
+            ]);
+        }
 
         return redirect('admin');
     }
